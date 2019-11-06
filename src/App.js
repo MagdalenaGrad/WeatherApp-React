@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search';
+import MainOutput from './components/MainOutput';
+import WeatherApi from './handlers/api';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.api = new WeatherApi;
+    this.state = {
+      value: ''
+    }
+  }
+
+  handleInputChange = (e) => {
+    this.setState({
+      value: e.target.value
+    })
+    console.log(e.target.value);
+  }
+
+  getWeather = async (query) => {
+    let response = await this.api.getWeatherData(query);
+    console.log(response);
+    console.log(response.main);
+    console.table(response.main);
+  }
+
+  handleCitySearch = (e) => {
+    e.preventDefault();
+    this.getWeather(this.state.value);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Search
+          change={this.handleInputChange}
+          submit={this.handleCitySearch}
+        />
+        <MainOutput />
+      </div>
+    )
+  }
 }
 
 export default App;
