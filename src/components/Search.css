@@ -62,3 +62,26 @@ button:hover {
 button i {
   font-size: 1.5rem;
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 575px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    flex-direction: column;
+  }
+
+  .form-search {
+    max-width: 90%;
+  }
+
+  .search-bar {
+    min-width: 100px;
+    max-width: 75%;
+    margin-bottom: 15px;
+  }
+
+}
