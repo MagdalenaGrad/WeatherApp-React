@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Search from './components/Search';
-import MainOutput from './components/MainOutput';
+import WeatherCard from './components/WeatherCard';
 import WeatherApi from './handlers/api';
 
 class App extends React.Component {
@@ -69,7 +69,7 @@ class App extends React.Component {
           change={this.handleInputChange}
           submit={this.handleCitySearch}
         />
-        <MainOutput weatherData={this.state} />
+        <WeatherCard weatherData={this.state} />
       </div>
     )
   }

@@ -1,0 +1,39 @@
+:root {
+  --def-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  box-shadow: var(--def-shadow);
+  display: inline-block;
+  padding: 3%;
+  margin-top: 3%;
+  border-radius: 10px;
+  background-color: rgb(221, 221, 221, 0.25);
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+.city-name {
+  text-decoration: underline;
+  text-transform: capitalize;
+  /* text-shadow: 3px 2px 2px lightslategrey; */
+  letter-spacing: 4px;
+}
+
+.icon-weather {
+  width: 62px;
+  position: relative;
+}
+
+.weather-main {
+  display: flex;
+}
+
+.temperature {
+  font-size: 52px;
+  padding: 20px;
+  margin-left: 20px;
+}
