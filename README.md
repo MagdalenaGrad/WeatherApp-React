@@ -1,4 +1,4 @@
-# :snowflaek: Weather App :sun_with_face:
+# :snowflake: Weather App :sun_with_face:
 
 ## Project description
 
@@ -8,7 +8,7 @@ A simple weather app  that shows you current weather data. Created in order to p
 
 [Coming soon!]()
 
-[preview](WeatherAppPreview.PNG)
+![preview](WeatherAppPreview.PNG)
 
 ## Technologies
 
