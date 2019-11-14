@@ -10,34 +10,41 @@ const WeatherCard = (props) => {
   const sunriseTime = new Date(sunrise).toLocaleTimeString();
   const sunsetTime = new Date(sunset).toLocaleTimeString();
 
-  const contentCard = null;
+  let contentCard = null;
 
+  if (city && !error) {
+    contentCard = (
+      <div className="card">
+        <h4><span className="city-name">{city}</span></h4>
+        <div>
+          <div className="weather-main">
+            <img className="icon-weather" src={sun}></img>
+            <div className="weather-desc">
+              <p><strong>{weatherDesc}</strong></p>
+            </div>
+          </div>
+          <div className="weather-temp">
+            <div className="temperature">{temp} &#176;C</div>
+            <div className="minmax">
+              <div className="min">min</div>
+              <div className="temp-min">{tempMin}</div>
+              <div className="minmax-icon"><i className="fas fa-temperature-high"></i></div>
+              <div className="max">max</div>
+              <div className="temp-max">{tempMax}</div>
+            </div>
+          </div>
+        </div>
+        <div className="other-data">
+          <p>wschód słońca: {sunriseTime}</p>
+          <p>zachód słońca: {sunsetTime}</p>
+          <p>Ciśnienie: {pressure} hPa</p>
+        </div>
+      </div>
+    )
+  }
   return (
-    <div className="card">
-      <h4><span className="city-name">{city}</span></h4>
-      <div>
-        <div className="weather-main">
-          <img className="icon-weather" src={sun}></img>
-          <div className="weather-desc">
-            <p><strong>{weatherDesc}</strong></p>
-          </div>
-        </div>
-        <div className="weather-temp">
-          <div className="temperature">{temp} &#176;C</div>
-          <div className="minmax">
-            <div className="min">min</div>
-            <div className="temp-min">{tempMin}</div>
-            <div className="minmax-icon"><i class="fas fa-temperature-high"></i></div>
-            <div className="max">max</div>
-            <div className="temp-max">{tempMax}</div>
-          </div>
-        </div>
-      </div>
-      <div className="other-data">
-        <p>wschód słońca: {sunriseTime}</p>
-        <p>zachód słońca: {sunsetTime}</p>
-        <p>Ciśnienie: {pressure} hPa</p>
-      </div>
+    <div>
+      {error ? <div className="card">{`Nie mogę odnaleźć miasta "${city}". Spróbuj jeszcze raz.`}</div> : contentCard}
     </div>
   )
 }

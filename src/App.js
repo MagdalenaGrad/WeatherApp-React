@@ -8,7 +8,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.api = new WeatherApi;
+    this.api = new WeatherApi();
     this.state = {
       value: '',
       date: "",
@@ -35,26 +35,31 @@ class App extends React.Component {
   getWeather = async (query) => {
     let response = await this.api.getWeatherData(query);
     console.log(response);
-    console.table(response.main);
+    // console.table(response.main);
 
-    // środa wieczór - to review to co w nawiasie {
-
-    const currentDate = new Date().toLocaleString();
-    this.setState({
-      error: false,
-      date: currentDate,
-      sunrise: response.sys.sunrise,
-      sunset: response.sys.sunset,
-      temp: response.main.temp,
-      tempMin: response.main.temp_min,
-      tempMax: response.main.temp_max,
-      pressure: response.main.pressure,
-      wind: response.wind.speed,
-      city: this.state.value,
-      weather: response.weather[0].main,
-      weatherDesc: response.weather[0].description,
-    })
-    // środa wieczór - to review to co w nawiasie
+    if (!response) {
+      console.log("złapałam");
+      this.setState({
+        error: true,
+        city: this.state.value
+      })
+    } else {
+      const currentDate = new Date().toLocaleString();
+      this.setState({
+        error: false,
+        date: currentDate,
+        sunrise: response.sys.sunrise,
+        sunset: response.sys.sunset,
+        temp: response.main.temp,
+        tempMin: response.main.temp_min,
+        tempMax: response.main.temp_max,
+        pressure: response.main.pressure,
+        wind: response.wind.speed,
+        city: this.state.value,
+        weather: response.weather[0].main,
+        weatherDesc: response.weather[0].description,
+      })
+    }
   }
 
   handleCitySearch = (e) => {
