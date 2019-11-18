@@ -44,7 +44,7 @@ class App extends React.Component {
         city: this.state.value
       })
     } else {
-      const currentDate = new Date().toLocaleString();
+      const currentDate = new Date().toLocaleDateString();
       this.setState({
         error: false,
         date: currentDate,
@@ -68,14 +68,21 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <Search
-          change={this.handleInputChange}
-          submit={this.handleCitySearch}
-        />
-        <WeatherCard weatherData={this.state} />
-      </div>
+    return ( <
+      div className = "App" >
+      <
+      Search change = {
+        this.handleInputChange
+      }
+      submit = {
+        this.handleCitySearch
+      }
+      /> <
+      WeatherCard weatherData = {
+        this.state
+      }
+      /> <
+      /div>
     )
   }
 }

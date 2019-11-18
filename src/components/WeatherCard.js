@@ -15,7 +15,7 @@ const WeatherCard = (props) => {
   if (city && !error) {
     contentCard = (
       <div className="card">
-        <h4><span className="city-name">{city}</span></h4>
+        <h4><span className="city-name">{city}, {date}</span></h4>
         <div>
           <div className="weather-main">
             <img className="icon-weather" src={sun}></img>
