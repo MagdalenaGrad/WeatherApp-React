@@ -6,7 +6,7 @@ A simple weather app  that shows you current weather data. Created in order to p
 
 ## Live preview:
 
-[Coming soon!]()
+[Coming soon!]() 
 
 ![preview](WeatherAppPreview.PNG)
 

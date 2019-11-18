@@ -7,8 +7,8 @@ const WeatherCard = (props) => {
   const { error, date, sunrise, sunset, value, city, temp, pressure, wind, tempMin, tempMax, weather, weatherDesc } = props.weatherData;
 
 
-  const sunriseTime = new Date(sunrise).toLocaleTimeString();
-  const sunsetTime = new Date(sunset).toLocaleTimeString();
+  const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const sunsetTime = new Date(sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   let contentCard = null;
 
